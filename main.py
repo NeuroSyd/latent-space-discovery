@@ -144,13 +144,6 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 shallow_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
                         loss_function="binary_crossentropy", nb_epoch=100, 
                         batch_size=20, path='./feature_extraction/shallowAE/'+aaenum+'/')
-
-#do not require fine tuning since this autoencoder does not have any hidden layer
-shallow_autoencoder = load_model('./feature_extraction/shallowAE/'+aaenum+'/shallow_encoder'+'.h5')
-x_train = shallow_autoencoder.predict(x_train)
-print('X_Train Shape after ShallowAE :', x_train.shape)
-x_test = shallow_autoencoder.predict(x_test)
-print('X_Test Shape after ShallowAE :', x_train.shape)
 '''
 
 ######### Denoising Autoencoder ############
@@ -158,14 +151,6 @@ print('X_Test Shape after ShallowAE :', x_train.shape)
 denoising_autoencoder_fit(x_train, x_test, x_train_noisy, x_test_noisy, dimension=50, optimizer="adadelta",
                           loss_function="binary_crossentropy", nb_epoch=100, 
                           batch_size=20, path='./feature_extractiondenoisingAE/'+aaenum+'/')
-
-#do not require fine tuning since this autoencoder does not have any hidden layer
-denoising_autoencoder = load_model('./results/denoisingAE/'+aaenum+'/denoising_encoder'+'.h5')
-
-x_train = denoising_autoencoder.predict(x_train)
-print('X_Train Shape after ShallowAE :', x_train.shape)
-x_test = denoising_autoencoder.predict(x_test)
-print('X_Test Shape after ShallowAE :', x_train.shape)
 '''
 
 ######### Deep Autoencoder  ################
@@ -174,13 +159,6 @@ deep_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
                      loss_function="binary_crossentropy", nb_epoch=100, 
                      batch_size=20, path='./feature_extraction/DeepAE/'+aaenum+'/')
        
-####### don't need to use the following lines if you fine tune the autoencoder
-deep_encoder = load_model('./feature_extraction/DeepAE/'+aaenum+'/deep_autoencoder'+'.h5')
-
-x_train = deep_encoder.predict(x_train)
-print('X_Train Shape after DeepAE :', x_train.shape)   
-x_test = deep_encoder.predict(x_test)
-print('X_Test Shape after DeepAE :', x_test.shape)
 '''
        
 ##############  AAE  ##############
@@ -188,28 +166,11 @@ print('X_Test Shape after DeepAE :', x_test.shape)
 aae_model('./feature_extraction/AAE/', AdversarialOptimizerSimultaneous(),
           xtrain=x_train, ytrain=y_train, xtest=x_test, ytest=y_train, encoded_dim=50,img_dim=x_train.shape[1], nb_epoch=100)          
        
-'''
-####### don't need to use the following lines if autoencoder require fine tuning
-model = load_model('./feature_extraction/AAE/'+aaenum+'/aae_encoder'+'.h5')
-
-x_train = model.predict(x_train)
-print('X_Train Shape after AAE :', x_train.shape)
-       
-x_test = model.predict(x_test)
-print('X_Test Shape after AAE :', x_test.shape)
-'''
                  
 ################  Variational Autoencoder  ####################
 '''
 vae_model_single('./feature_extraction/VAE/'+aaenum+'/',x_train.shape[1],
                  x_train,x_test,intermediate_dim=1000,batch_size=20,latent_dim=50,epochs=100)
-
-####### don't need to use the following lines if autoencoder require fine tuning
-model = load_model('./feature_extraction/VAE/'+aaenum+'/vae_encoder'+'.h5')
-x_train = model.predict(x_train)
-print('X_Train Shape after VAE :', x_train.shape)
-x_test = model.predict(x_test)
-print('X_Test Shape after VAE :', x_test.shape)
 '''
 
 #index = dataset.iloc[0:20482,0] # this is for valiadtion data
