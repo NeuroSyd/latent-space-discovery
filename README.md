@@ -93,8 +93,8 @@ More regarding gene ontology http://geneontology.org/docs/ontology-documentation
 
 ## Datasets
 
-* [cBioPortal](http://http://www.cbioportal.org/) - Cancer Genomics Datasets
-* [Breast Invasive Carcinoma (TCGA, Cell 2015)](http://www.cbioportal.org/study?id=brca_tcga_pub2015) - Clinical information is used to label various molecular subtypes
+* [cBioPortal](https://http://www.cbioportal.org/) - Cancer Genomics Datasets
+* [Breast Invasive Carcinoma (TCGA, Cell 2015)](https://www.cbioportal.org/study?id=brca_tcga_pub2015) - Clinical information is used to label various molecular subtypes
 
 ``` Breast Invasive Carcinoma (BRCA) ```
 
