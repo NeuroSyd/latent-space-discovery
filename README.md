@@ -72,13 +72,13 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-classification_using_aae.py
+main.py
 ```
 
 And repeat
 
 ```
-until finished
+main_pca.py
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
