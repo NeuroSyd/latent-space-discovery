@@ -80,7 +80,6 @@ And run the following to extract features when PCA, NMF, FastICA, ICA, RBM etc. 
 main_pca.py
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
 
 Gene ontology of molecular function was performed using DAVID 6.7 https://david-d.ncifcrf.gov/
 
