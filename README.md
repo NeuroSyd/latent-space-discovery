@@ -68,13 +68,13 @@ Supports both Python 2.5.0 and Python 3.5.6
 ### Usage
 
 
-Run the following to extract features using AAE
+Run the following to extract features using different autoencoders
 
 ```
 main.py
 ```
 
-And run the following when PCA, ICA,are used
+And run the following to extract features when PCA, NMF, FastICA, ICA, RBM etc. are used
 
 ```
 main_pca.py
