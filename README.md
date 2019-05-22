@@ -67,15 +67,14 @@ Supports both Python 2.5.0 and Python 3.5.6
 
 ### Usage
 
-A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Run the following to extract features using AAE
 
 ```
 main.py
 ```
 
-And repeat
+And run the following when PCA, ICA,are used
 
 ```
 main_pca.py
