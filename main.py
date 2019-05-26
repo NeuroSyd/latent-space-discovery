@@ -164,7 +164,7 @@ deep_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
 ##############  AAE  ##############
        
 aae_model('./feature_extraction/AAE/', AdversarialOptimizerSimultaneous(),
-          xtrain=x_train, ytrain=y_train, xtest=x_test, ytest=y_train, encoded_dim=50,img_dim=x_train.shape[1], nb_epoch=100)          
+          xtrain=x_train, ytrain=y_train, xtest=x_test, ytest=y_test, encoded_dim=50,img_dim=x_train.shape[1], nb_epoch=100)          
        
                  
 ################  Variational Autoencoder  ####################
