@@ -95,7 +95,7 @@ print('Actual dataset shape {}'.format(Counter(y)))
 '''
               
 
-sm = SMOTEENN(ratio=1, random_state=seed)
+sm = SMOTE(sampling_strategy='auto', kind='borderline1', random_state=seed)
 X, y = sm.fit_sample(X, y)
 #x_train, y_train = sm.fit_sample(x_train, y_train)
 #x_test, y_test = sm.fit_sample(x_test, y_test)
