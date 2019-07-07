@@ -87,7 +87,8 @@ More regarding gene ontology http://geneontology.org/docs/ontology-documentation
 
 ## Proposed Architecture
 
-![aae_latent_space_updated](https://user-images.githubusercontent.com/28592095/57984823-e8c49a00-7aa2-11e9-9379-b7a3fd47309e.png)
+![weight_analysis_aae](https://user-images.githubusercontent.com/28592095/60767714-c3e1c000-a0fe-11e9-99fc-a50120d02651.png)
+
 
 ## Datasets
 
