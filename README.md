@@ -6,7 +6,7 @@
 ![tensorflow version](https://img.shields.io/badge/tensorflow-1.13.1-orange.svg)
 ![imblearn version](https://img.shields.io/badge/imbalanced--learn-0.4.3-blue.svg)
 
-In this project, we introduce neural network based adversarial autoencoder (AAE) model to extract biologically-relevant features from RNA-Seq data. We also developed a method named TopGene to ﬁnd highly interactive genes from the latent space. AAE in combination with TopGene method ﬁnds important genes which could be useful for ﬁnding cancer biomarkers.
+In this project, we introduce neural network based adversarial autoencoder (AAE) model to extract biologically-relevant features from RNA-Seq data. We also developed a method named TopGene to ﬁnd highly interactive genes from the latent space. AFExNet in combination with TopGene method ﬁnds important genes which could be useful for ﬁnding cancer biomarkers.
 
 
 ![project_logo_transparent](https://user-images.githubusercontent.com/28592095/56498063-8039da00-6543-11e9-8b4a-a551bad3ed0f.png)
