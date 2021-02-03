@@ -43,7 +43,6 @@ def deep_autoencoder_fit(x_train, x_test, encoding_dim=2, optimizer="adadelta", 
                         verbose=1,
                         batch_size=batch_size,
                         shuffle=False,
-                        validation_data=(x_test, x_test),
                         )
         #if (save==1):
         encoder.save(os.path.join(path, "deep_encoder.h5"))
