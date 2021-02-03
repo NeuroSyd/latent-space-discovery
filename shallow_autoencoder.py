@@ -12,7 +12,7 @@ from keras import metrics
 from keras import callbacks
 import os
 
-def shallow_autoencoder_fit(x_train, x_test, encoding_dim=2, optimizer="adadelta", loss_function="binary_crossentropy", nb_epoch=4, batch_size=2, path='./saved_models'):
+def shallow_autoencoder_fit(x_train, encoding_dim=2, optimizer="adadelta", loss_function="binary_crossentropy", nb_epoch=4, batch_size=2, path='./saved_models'):
   input_img = Input(shape=(x_train.shape[1],), name="x")
   #Shallow Autoencoder
   # "encoded" is the encoded representation of the input
