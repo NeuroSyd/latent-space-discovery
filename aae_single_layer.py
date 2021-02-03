@@ -38,7 +38,7 @@ def model_discriminator(input_shape, output_dim=1, hidden_dim=1000):
     return Model(z, y)
 
 
-def aae_model(path, adversarial_optimizer,xtrain,ytrain,xtest,ytest,encoded_dim=100,img_dim=25, nb_epoch=20):
+def aae_model(path, adversarial_optimizer,xtrain,encoded_dim=100,img_dim=25, nb_epoch=20):
     # z \in R^100
     latent_dim = encoded_dim
     # x \in R^{28x28}
