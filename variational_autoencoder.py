@@ -29,7 +29,7 @@ def sampling(args):
 
 
 
-def vae_model_single(path,original_dim,xtrain,xtest,intermediate_dim,batch_size,latent_dim,epochs):
+def vae_model_single(path,original_dim,xtrain,intermediate_dim,batch_size,latent_dim,epochs):
     # network parameters
     input_shape = (original_dim, )
     intermediate_dim = intermediate_dim
