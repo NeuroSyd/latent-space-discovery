@@ -40,16 +40,16 @@ def vae_model_single(path,original_dim,xtrain,xtest,intermediate_dim,batch_size,
     # VAE model = encoder + decoder
     # build encoder model
     inputs = Input(shape=input_shape, name='encoder_input')
-    #x = Dense(intermediate_dim, name='encoder_h1', activation='relu')(inputs)
-    z_mean = Dense(latent_dim, name='z_mean')(inputs)
-    z_log_var = Dense(latent_dim, name='z_log_var')(inputs)
+    x = Dense(intermediate_dim, name='encoder_h1', activation='relu')(inputs)
+    z_mean = Dense(latent_dim, name='z_mean')(x)
+    z_log_var = Dense(latent_dim, name='z_log_var')(x)
 
     # use reparameterization trick to push the sampling out as input
     # note that "output_shape" isn't necessary with the TensorFlow backend
-    z = Lambda(sampling, output_shape=(latent_dim,), name='z')([z_mean, z_log_var])
+    z = Lambda(sampling, output_shape=(latent_dim,), name='encoder_mu')([z_mean, z_log_var])
 
     # instantiate encoder model
-    encoder = Model(inputs, z_mean, name='encoder')
+    encoder = Model(inputs, z, name='encoder')
     encoder.summary()
     
     # build decoder model
