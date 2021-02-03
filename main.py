@@ -121,8 +121,9 @@ fig.savefig("./figures/input_data.png", format='png', dpi=500)
 '''
 
 #################### Spilt the data for training and testing ################
-x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
+#x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+x_train=X
+y_train=y
 #noise_factor = 0.2
 #x_train_noisy = x_train + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train.shape) 
 #x_test_noisy = x_test + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test.shape) 
@@ -141,21 +142,21 @@ x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 
 ######### Shallow Autoencoder ############
 '''
-shallow_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
+shallow_autoencoder_fit(x_train, dimension=50, optimizer="adadelta",
                         loss_function="binary_crossentropy", nb_epoch=100, 
                         batch_size=20, path='./feature_extraction/shallowAE/'+aaenum+'/')
 '''
 
 ######### Denoising Autoencoder ############
 '''
-denoising_autoencoder_fit(x_train, x_test, x_train_noisy, x_test_noisy, dimension=50, optimizer="adadelta",
+denoising_autoencoder_fit(x_train, x_train_noisy, dimension=50, optimizer="adadelta",
                           loss_function="binary_crossentropy", nb_epoch=100, 
                           batch_size=20, path='./feature_extractiondenoisingAE/'+aaenum+'/')
 '''
 
 ######### Deep Autoencoder  ################
 '''
-deep_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
+deep_autoencoder_fit(x_train, dimension=50, optimizer="adadelta",
                      loss_function="binary_crossentropy", nb_epoch=100, 
                      batch_size=20, path='./feature_extraction/DeepAE/'+aaenum+'/')
        
@@ -164,13 +165,13 @@ deep_autoencoder_fit(x_train, x_test, dimension=50, optimizer="adadelta",
 ##############  AAE  ##############
        
 aae_model('./feature_extraction/AAE/', AdversarialOptimizerSimultaneous(),
-          xtrain=x_train, ytrain=y_train, xtest=x_test, ytest=y_test, encoded_dim=50,img_dim=x_train.shape[1], nb_epoch=100)          
+          xtrain=x_train, ytrain=y_train, encoded_dim=50,img_dim=x_train.shape[1], nb_epoch=100)          
        
                  
 ################  Variational Autoencoder  ####################
 '''
 vae_model_single('./feature_extraction/VAE/'+aaenum+'/',x_train.shape[1],
-                 x_train,x_test,intermediate_dim=1000,batch_size=20,latent_dim=50,epochs=100)
+                 x_train,intermediate_dim=1000,batch_size=20,latent_dim=50,epochs=100)
 '''
 
 #index = dataset.iloc[0:20482,0] # this is for valiadtion data
@@ -179,7 +180,7 @@ index = file_1.iloc[0:20439,0]
 ################ load model  #########################
 weight = load_model('./feature_extraction/AAE/aae_encoder.h5')
 
-encoded_aae=weight.predict(X)
+encoded_aae=weight.predict(x_train)
 
 sns_plot1=sns.heatmap(encoded_aae, cmap="PiYG", cbar=True)
 fig1 = sns_plot1.get_figure()
