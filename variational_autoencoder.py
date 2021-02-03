@@ -87,7 +87,7 @@ def vae_model_single(path,original_dim,xtrain,xtest,intermediate_dim,batch_size,
     vae.compile(optimizer='adadelta', loss=None)
     
     vae.summary()
-    history=vae.fit(xtrain, None, epochs=epochs, batch_size=batch_size, validation_data=(xtest, None))
+    history=vae.fit(xtrain, None, epochs=epochs, batch_size=batch_size)
     df = pd.DataFrame(history.history)
     df.to_csv(os.path.join(path, "vae_training_history.csv"))
     encoder.save(os.path.join(path,"vae_encoder.h5"))
