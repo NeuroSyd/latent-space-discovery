@@ -17,7 +17,7 @@ def autoencoder_predict(encoder, x_test):
 	return prediction.reshape((len(prediction), np.prod(prediction.shape[1:])))
 
 #return a fit deep encoder
-def deep_denoising_autoencoder_fit(x_train, x_test, x_train_noisy, x_test_noisy, 
+def deep_denoising_autoencoder_fit(x_train, x_train_noisy,
         encoding_dim=2, optimizer="adadelta", loss_function="binary_crossentropy", nb_epoch=4, batch_size=2, path='./saved_models'):
         input_img = Input(shape=(x_train.shape[1],), name="x")
 
