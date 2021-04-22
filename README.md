@@ -129,7 +129,7 @@ More regarding gene ontology http://geneontology.org/docs/ontology-documentation
 
 * [Details about Molecular Subtypes of Endometrial Cancer](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5154099/)
 
-## Contributing
+## Contribution
 
 If you want to contribute to this project and make it better, your help is very welcome. When contributing to this repository please make a clean pull request.
 
